@@ -6,7 +6,6 @@ $("#query").click(function(){
 $("#add").click(function(){
     $("#query1").hide();
     $("#add1").show();
-    $("#con").hide();
 })
 var NebPay = require("nebpay");     
 var nebPay = new NebPay();
@@ -40,11 +39,11 @@ function cbSearch(resp) {
     var result = resp.result    ////resp is an object, resp.result is a JSON string
     if(result!=null &&result!="null" &&result!="[]"){
         $("#con").html("");
+        
         console.log("return of rpc call: " + JSON.stringify(result))
-        result = JSON.parse(result);
-        console.log("return of rpc call: " + JSON.stringify(result))
-        if(result.length>1){
-            
+        if(result.indexOf("[{")!=-1){
+            console.log("return of rpc call: " + JSON.stringify(result))
+            result = JSON.parse(result);
             for(var i=0;i<result.length;i++){
                 $("#con").append('<div class="search-again form-item-wrap" id="append">'+
                 '好书：'+
