@@ -78,13 +78,15 @@ function cbSearch(resp) {
     
 }
 
-        var reg=/^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;  
-        
+        //var reg=/^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;  
+    function isURL(str) {
+        return !!str.match(/(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/g);
+    }
         $("#add2").click(function() {
             //alert($("#bookInput").val().length+"!!!!!!!!!"+$("#typeInput").val().length+"***********"+$("#urlInput").val().length);
             if($("#bookInput").val().length===0 || $("#typeInput").val().length===0 || $("#urlInput").val().length===0){
                 alert("请输入内容");
-            }else if(!reg.test($("#urlInput").val())){  
+            }else if(!isURL($("#urlInput").val())){  
                 alert("这网址不是以http://https://开头，或者不是网址！");  
             }else{
                 var to = dappAddress;
