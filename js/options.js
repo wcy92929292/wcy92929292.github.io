@@ -60,6 +60,7 @@ function cbSearch(resp) {
             }
             
         }else{
+            result = JSON.parse(result);
             $("#con").append('<div class="search-again form-item-wrap" id="append">'+
                                         '好书：'+
                                         '<span name="bookName3">'+result.bookName+'</span>'+
