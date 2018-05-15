@@ -2,10 +2,12 @@
 $("#query").click(function(){
     $("#query1").show();
     $("#add1").hide();
+    $("#con").show();
 })
 $("#add").click(function(){
     $("#query1").hide();
     $("#add1").show();
+    $("#con").hide();
 })
 var NebPay = require("nebpay");     
 var nebPay = new NebPay();
